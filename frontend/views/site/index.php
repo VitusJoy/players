@@ -10,17 +10,23 @@ $this->title = 'My Yii Application';
         <h1>Welcome!</h1>
 
         <p class="lead">Please select your player.</p>
+    </div>
 
-<!--         <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
- -->    </div>
 
+
+
+
+    <?php
+    if (Yii::$app->user->identity->status_active == 0) { ?>
+
+        
     <div class="body-content">
 
     <div class="row">
         <div class="col-lg-4">
             <p>
-                <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    Link with href
+                <a class="btn btn-primary btn-lg" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Player A
                 </a>
             </p>
        </div>
@@ -28,16 +34,16 @@ $this->title = 'My Yii Application';
 
           <div class="col-lg-4">
             <p>
-                <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    Link with href
+                <a class="btn btn-primary btn-lg" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Player A
                 </a>
             </p>
         </div>
 
           <div class="col-lg-4">
             <p>
-                <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    Link with href
+                <a class="btn btn-primary btn-lg" data-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Player A
                 </a>
             </p>
             
@@ -48,39 +54,45 @@ $this->title = 'My Yii Application';
 
 </div>
 
-    <div class=" container">
-        <div class="row">
-            <div class="col">
-                    <div class="collapse" id="collapseExample1">
-                      <div class="card card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.3333333333333
-                      </div>
-                    </div>
-            </div>
-         </div>
+<div class="container">
+    <div class="row">
+        <div class="collapse" id="collapseExample1">
+            <div class="col-lg-4"><h1>hola</h1></div>
+            <div class="col-lg-4"><h1>hola</h1></div>
+            <div class="col-lg-4"> <h1>hola</h1> </div>
+        </div>
     </div>
-    <div class=" container">
-        <div class="row">
-            <div class="col">
-                <div class="collapse" id="collapseExample2">
-                  <div class="card card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.44444444444    
-                  </div>
-                </div>
-            </div>
-         </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="collapse" id="collapseExample2">
+            <div class="col-lg-4"><h1>hola</h1></div>
+            <div class="col-lg-4"><h1>hola</h1></div>
+            <div class="col-lg-4"> <h1>hola</h1> </div>
+        </div>
     </div>
+</div>
 
-        <div class=" container">
-        <div class="row">
-            <div class="col">
-                <div class="collapse" id="collapseExample3">
-                  <div class="card card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.44444444444    
-                  </div>
-                </div>
-            </div>
-         </div>
+<div class="container">
+    <div class="row">
+        <div class="collapse" id="collapseExample3">
+            <div class="col-lg-4"><h1>hola</h1></div>
+            <div class="col-lg-4"><h1>hola</h1></div>
+            <div class="col-lg-4"> <h1>hola</h1> </div>
+        </div>
     </div>
+</div>
+
+    <?php }else{ ?>
+        <div align="center">
+            <h1>Thank you for buying the Player</h1>
+        </div>
+        
+
+        <?php } ?>
+
+    
+
+
 
 
