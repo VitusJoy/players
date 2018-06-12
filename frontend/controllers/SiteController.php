@@ -212,4 +212,10 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
+
+
+    public function actionHello()
+    {
+         return $this->render('hello');   
+    }
 }
