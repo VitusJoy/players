@@ -29,13 +29,14 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => Yii::$app->name,
+        'brandLabel' => 'Vitus Joy', //Yii::$app->name,
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
     $menuItems = [
+
         ['label' => 'Home', 'url' => ['/site/index']],
         ['label' => 'About', 'url' => ['/site/about']],
         ['label' => 'Contact', 'url' => ['/site/contact']],
@@ -52,6 +53,8 @@ AppAsset::register($this);
             )
             . Html::endForm()
             . '</li>';
+
+        $menuItems[] =['label' => 'Select Player', 'url' => ['/site/hello']];
     }
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
@@ -71,9 +74,9 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; <?= Html::encode(Yii::$app->name) ?> <?= date('Y') ?></p>
+        <p class="pull-left">&copy; Vitus Joy</p>
 
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <p class="pull-right"><a class="fa fa-linkedin" aria-hidden="true" href="https://www.linkedin.com/in/vitus-joy"></a></p>
     </div>
 </footer>
 

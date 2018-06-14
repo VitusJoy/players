@@ -88,7 +88,8 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            $this->redirect(array('site/hello'));
+            // return $this->goBack();
         } else {
             $model->password = '';
 
@@ -107,7 +108,7 @@ class SiteController extends Controller
     {
         Yii::$app->user->logout();
 
-        return $this->render('final_thank');
+        return $this->render('index');
     }
 
     /**
@@ -154,7 +155,8 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->signup()) {
                 if (Yii::$app->getUser()->login($user)) {
-                    return $this->goHome();
+                    $this->redirect(array('site/hello'));
+                    //return $this->goHome();
                 }
             }
         }
@@ -216,6 +218,33 @@ class SiteController extends Controller
 
     public function actionHello()
     {
-         return $this->render('hello');   
+            $user_id = Yii::$app->user->id;
+            
+            $players_cat1 = \Yii::$app->db->createCommand("SELECT  p_name,p_image FROM players WHERE p_cat = 1 AND p_status = 0")->queryAll();
+            $players_cat2 = \Yii::$app->db->createCommand("SELECT  p_name,p_image FROM players WHERE p_cat = 2 AND p_status = 0")->queryAll();
+            $players_cat3 = \Yii::$app->db->createCommand("SELECT  p_name,p_image FROM players WHERE p_cat = 3 AND p_status = 0")->queryAll();
+            
+            $ustatus = \Yii::$app->db->createCommand("SELECT status_active FROM user WHERE id=".$user_id."")->queryAll();
+            
+        foreach ($ustatus as $key) 
+        {
+            $u_status= $key['status_active'];
+            if ($u_status ==0) {
+                return $this->render('player_select_page', [
+                    'ustatus'=> 0, 'cat1_p' => $players_cat1 ,'cat2_p' => $players_cat2, 'cat3_p' => $players_cat3
+                ]); 
+            }else{
+                return $this->render('player_select_page',[
+                    'ustatus'=> 1,
+                 ]);
+            }
+        }
+
+
+            //  return $this->render('index', [
+            //      'ustatus'=> $ustatus ,
+            // ]);
+
+             
     }
 }
