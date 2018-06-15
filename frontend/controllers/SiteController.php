@@ -220,9 +220,9 @@ class SiteController extends Controller
     {
             $user_id = Yii::$app->user->id;
             
-            $players_cat1 = \Yii::$app->db->createCommand("SELECT  p_name,p_image FROM players WHERE p_cat = 1 AND p_status = 0")->queryAll();
-            $players_cat2 = \Yii::$app->db->createCommand("SELECT  p_name,p_image FROM players WHERE p_cat = 2 AND p_status = 0")->queryAll();
-            $players_cat3 = \Yii::$app->db->createCommand("SELECT  p_name,p_image FROM players WHERE p_cat = 3 AND p_status = 0")->queryAll();
+            $players_cat1 = \Yii::$app->db->createCommand("SELECT  id,p_name,p_image FROM players WHERE p_cat = 1 AND p_status = 0")->queryAll();
+            $players_cat2 = \Yii::$app->db->createCommand("SELECT  id,p_name,p_image FROM players WHERE p_cat = 2 AND p_status = 0")->queryAll();
+            $players_cat3 = \Yii::$app->db->createCommand("SELECT  id,p_name,p_image FROM players WHERE p_cat = 3 AND p_status = 0")->queryAll();
             
             $ustatus = \Yii::$app->db->createCommand("SELECT status_active FROM user WHERE id=".$user_id."")->queryAll();
             
@@ -246,5 +246,17 @@ class SiteController extends Controller
             // ]);
 
              
+    }
+
+
+    public function actionPlayer($pid){
+
+        if ($pid) {
+            echo "not null";
+        }else{
+            echo "null";
+        }
+
+        // return $this->render('display_player',['pid'=>$x,]);
     }
 }

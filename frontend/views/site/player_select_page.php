@@ -1,6 +1,15 @@
 <?php
 
+
+use yii\helpers\Html;
+
+
+
+
+
 /* @var $this yii\web\View */
+/* @var $content string */
+
 
 $this->title = 'My Yii Application';
 ?>
@@ -53,8 +62,15 @@ $this->title = 'My Yii Application';
         <div class="row">
             <div class="collapse"  id="collapseExample1">
 
-            <?php foreach ($cat1_p as $key) { ?>
-                <div class="col-lg-4"> <h3> <?php echo $key['p_name'];  ?> </h3> </div>
+            <?php foreach ($cat1_p as $key) { 
+                ?>
+                <div class="col-lg-4"> <h3> <a href= 
+                <?php
+
+                    echo Yii::$app->urlmanager->createUrl('site/player', array('id' => $key['id'])); 
+
+                ?> 
+                 > <?php echo $key['p_name'];  ?> </a> </h3> </div>
                 
             <?php } ?>
 
