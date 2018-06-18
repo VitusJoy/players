@@ -239,24 +239,6 @@ class SiteController extends Controller
                  ]);
             }
         }
-
-
-            //  return $this->render('index', [
-            //      'ustatus'=> $ustatus ,
-            // ]);
-
              
-    }
-
-
-    public function actionPlayer($pid){
-
-        if ($pid) {
-            echo "not null";
-        }else{
-            echo "null";
-        }
-
-        // return $this->render('display_player',['pid'=>$x,]);
     }
 }

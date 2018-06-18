@@ -14,7 +14,8 @@ use yii\helpers\Html;
 $this->title = 'My Yii Application';
 ?>
 <div class="site-index">
-
+    <?php
+    if ($ustatus ==0) { ?>
     <div class="jumbotron">
         <h1>Welcome!</h1>
 
@@ -23,8 +24,7 @@ $this->title = 'My Yii Application';
 
     <div class="body-content">
 <div id="myGroup">
-    <?php
-    if ($ustatus ==0) { ?>
+    
 
             <div class="row">
             <div class="col-lg-4">
@@ -64,13 +64,12 @@ $this->title = 'My Yii Application';
 
             <?php foreach ($cat1_p as $key) { 
                 ?>
-                <div class="col-lg-4"> <h3> <a href= 
-                <?php
-
-                    echo Yii::$app->urlmanager->createUrl('site/player', array('id' => $key['id'])); 
-
-                ?> 
-                 > <?php echo $key['p_name'];  ?> </a> </h3> </div>
+                <div class="col-lg-4"> 
+                    <h3><?php echo $key['p_name'];  ?> </h3>
+                    <?php
+                        echo Html::a('Choose Him',['player/status', 'pid' => $key['id']],['class'=>'btn btn-success']);
+                    ?> 
+                </div>
                 
             <?php } ?>
 
@@ -81,7 +80,11 @@ $this->title = 'My Yii Application';
         <div class="row">
             <div class="collapse indent" id="collapseExample2">
                 <?php foreach ($cat2_p as $key) { ?>
-                    <div class="col-lg-4"> <h3> <?php echo $key['p_name'];  ?> </h3> </div>
+                    <div class="col-lg-4"> <h3> <?php echo $key['p_name'];  ?> </h3> 
+                        <?php
+                            echo Html::a('Choose Him',['player/status', 'pid' => $key['id']],['class'=>'btn btn-success']);
+                        ?> 
+                    </div>
                 
                 <?php } ?>
             </div>
@@ -92,7 +95,11 @@ $this->title = 'My Yii Application';
         <div class="row">
             <div class="collapse indent" id="collapseExample3">
                 <?php foreach ($cat3_p as $key) { ?>
-                    <div class="col-lg-4"> <h3> <?php echo $key['p_name'];  ?> </h3> </div>
+                    <div class="col-lg-4"> <h3> <?php echo $key['p_name'];  ?> </h3>
+                        <?php
+                            echo Html::a('Choose Him',['player/status', 'pid' => $key['id']],['class'=>'btn btn-success']);
+                        ?> 
+                    </div>
                 
                 <?php } ?>
             </div>
@@ -105,7 +112,7 @@ $this->title = 'My Yii Application';
     
 
         <div align="center">
-            <h1>Thank you for buying the Player</h1>
+            <h1>Thank you for Selecting the Player</h1>
         </div>
 
        <?php } ?>

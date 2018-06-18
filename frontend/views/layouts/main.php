@@ -29,7 +29,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'Vitus Joy', //Yii::$app->name,
+        'brandLabel' => Yii::$app->name,
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -54,7 +54,15 @@ AppAsset::register($this);
             . Html::endForm()
             . '</li>';
 
-        $menuItems[] =['label' => 'Select Player', 'url' => ['/site/hello']];
+        if (Yii::$app->user->identity->status_active == 0) {
+            $menuItems[] =['label' => 'Select Player', 'url' => ['/site/hello']];
+        }
+        
+        
+        if (Yii::$app->user->identity->status_active == 1){
+            $menuItems[] =['label' => 'Selected Player', 'url' => ['/player/selected']];    
+        }
+        
     }
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],

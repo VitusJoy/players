@@ -8,6 +8,7 @@ $params = array_merge(
 
 return [
     'id' => 'app-frontend',
+    'name' => 'Forane Futsal',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
@@ -38,14 +39,11 @@ return [
         ],
         
         'urlManager' => [
-            'enablePrettyUrl' => true,
+            'enablePrettyUrl' => false,
             'showScriptName' => false,
-            'rules' => array(
-                '<controller:\w+>' => '<controller>/index',
-                '<controller:\w+>/<id:\d+>' => '<controller>/view',
-                '<controller:\w+>/<id:\d+>/<action:\w+>' => '<controller>/<action>'
+            'rules' => [
 
-            ),
+            ],
         ],
         
     ],
