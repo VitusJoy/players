@@ -22,14 +22,14 @@ $this->title = 'My Yii Application';
         <p class="lead">Please select your player.</p>
     </div>
 
-    <div class="body-content">
-<div id="myGroup">
+    <div class="body-content" align="center">
+<div >
     
 
             <div class="row">
-            <div class="col-lg-4">
+            <div class="col-lg-4" >
                 <p>
-                    <a class="btn btn-primary btn-lg" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample" data-parent="#myGroup">
+                    <a class="btn btn-primary btn-lg" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample" >
                         Category 1
                     </a>
                 </p>
@@ -38,7 +38,7 @@ $this->title = 'My Yii Application';
 
               <div class="col-lg-4">
                 <p>
-                    <a class="btn btn-primary btn-lg" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample" data-parent="#myGroup">
+                    <a class="btn btn-primary btn-lg" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample" >
                         Category 2
                     </a>
                 </p>
@@ -46,7 +46,7 @@ $this->title = 'My Yii Application';
 
               <div class="col-lg-4">
                 <p>
-                    <a class="btn btn-primary btn-lg" data-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample" data-parent="#myGroup">
+                    <a class="btn btn-primary btn-lg" data-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample" >
                         Category 3
                     </a>
                 </p>
@@ -64,11 +64,13 @@ $this->title = 'My Yii Application';
 
             <?php foreach ($cat1_p as $key) { 
                 ?>
-                <div class="col-lg-4"> 
+                <div class="col-lg-4">
+                    <img src=<?php $imgurl ='"'; $imgurl .= $key['p_image']; $imgurl .= '"'; echo $imgurl; ?> class="img-thumbnail" height="150" width ="150"> 
                     <h3><?php echo $key['p_name'];  ?> </h3>
                     <?php
                         echo Html::a('Choose Him',['player/status', 'pid' => $key['id']],['class'=>'btn btn-success']);
                     ?> 
+                    <hr> 
                 </div>
                 
             <?php } ?>
@@ -80,32 +82,47 @@ $this->title = 'My Yii Application';
         <div class="row">
             <div class="collapse indent" id="collapseExample2">
                 <?php foreach ($cat2_p as $key) { ?>
-                    <div class="col-lg-4"> <h3> <?php echo $key['p_name'];  ?> </h3> 
+                    
+                    <div class="col-lg-4"> 
+                    <img src=<?php $imgurl ='"'; $imgurl .= $key['p_image']; $imgurl .= '"'; echo $imgurl; ?> class="img-thumbnail" height="150" width ="150"> 
+                    <h3> <?php echo $key['p_name'];  ?> </h3> 
                         <?php
                             echo Html::a('Choose Him',['player/status', 'pid' => $key['id']],['class'=>'btn btn-success']);
                         ?> 
+                        <hr> 
                     </div>
                 
                 <?php } ?>
+
             </div>
         </div>
     </div>
 
     <div class="container">
         <div class="row">
-            <div class="collapse indent" id="collapseExample3">
+            <div class="collapse" id="collapseExample3" >
                 <?php foreach ($cat3_p as $key) { ?>
-                    <div class="col-lg-4"> <h3> <?php echo $key['p_name'];  ?> </h3>
+                    <div class="col-lg-4"> 
+                        <img src=<?php $imgurl ='"'; $imgurl .= $key['p_image']; $imgurl .= '"'; echo $imgurl; ?> class="img-thumbnail" height="150" width ="150"> 
+                        <h3> <?php echo $key['p_name'];  ?> </h3>
                         <?php
                             echo Html::a('Choose Him',['player/status', 'pid' => $key['id']],['class'=>'btn btn-success']);
-                        ?> 
+                        ?>
+                        <hr> 
                     </div>
                 
                 <?php } ?>
+
             </div>
         </div>
     </div>
     </div>
+
+
+
+
+
+
 
         
     <?php }else{ ?>
@@ -121,6 +138,13 @@ $this->title = 'My Yii Application';
 
 
         </div>
+
+
+
+
+        <script type="text/javascript">
+
+        </script>
 
 
 
