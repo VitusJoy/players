@@ -1,4 +1,4 @@
 <?php
 return [
-    'adminEmail' => 'vitus_j@bookmein.in',
+    'adminEmail' => 'vj4407@gmail.com',
 ];

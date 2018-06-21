@@ -15,10 +15,17 @@ class AppAsset extends AssetBundle
         'css/site.css',
     ];
     public $js = [
+        // "js/jquery-3.3.1.min.js",
     ];
     public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
         '\rmrevin\yii\fontawesome\AssetBundle',
     ];
+
+    public $jsOptions = array(
+    'position' => \yii\web\View::POS_HEAD
+);
+
+    
 }
