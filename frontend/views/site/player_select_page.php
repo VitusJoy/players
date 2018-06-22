@@ -27,28 +27,27 @@ $this->title = 'My Yii Application';
         <div class="row">
             <div class="col-lg-4" >
                 <p>
-                    <a class="btn btn-primary btn-lg" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample"  id="jack">
+                    <a class="btn btn-primary btn-lg" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample"  id="cols1">
                         Category 1
                     </a>
                 </p>
             </div>
             <div class="col-lg-4">
                 <p>
-                    <a class="btn btn-primary btn-lg" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample" >
+                    <a class="btn btn-primary btn-lg" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample" id="cols2">
                         Category 2
                     </a>
                 </p>
             </div>
             <div class="col-lg-4">
                 <p>
-                    <a class="btn btn-primary btn-lg" data-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample" >
+                    <a class="btn btn-primary btn-lg" data-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample" id="cols3">
                         Category 3
                     </a>
                 </p>
             </div>
-        </div>
-        <div class="container">
-            <div class="row">
+              <!--   sfsfsf -->
+
                 <div class="collapse indent"  id="collapseExample1">
 
                 <?php foreach ($cat1_p as $key) { ?>
@@ -67,10 +66,7 @@ $this->title = 'My Yii Application';
                 <?php } ?>
 
                 </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
+
                 <div class="collapse indent" id="collapseExample2">
                     <?php foreach ($cat2_p as $key) { ?>
                         <div class="col-lg-4"> 
@@ -85,12 +81,7 @@ $this->title = 'My Yii Application';
                     <?php } ?>
 
                 </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                <div class="collapse" id="collapseExample3" >
+                 <div class="collapse" id="collapseExample3" >
                     <?php foreach ($cat3_p as $key) { ?>
                         <div class="col-lg-4"> 
                             <img src=<?php $imgurl ='"'; $imgurl .= $key['p_image']; $imgurl .= '"'; echo $imgurl; ?> class="img-thumbnail" height="150" width ="150"> 
@@ -102,9 +93,9 @@ $this->title = 'My Yii Application';
                         </div>
                     <?php } ?>
                 </div>
-            </div>
+
         </div>
-    </div>
+     </div>
      
     <?php }else{ ?>
         <div align="center">
@@ -113,19 +104,24 @@ $this->title = 'My Yii Application';
     <?php } ?>
 </div>
 
+
 <script>
-     
-$(document).ready(function(){
-
-    var $myGroup = $('#myGroup');
-    $myGroup.on('show','.collapse', function() {
-        $myGroup.find('.collapse.in').collapse('hide');
-    });
-
-
+    $('#cols1').on('click', function () { 
+  $('#collapseExample3').collapse("hide");
+  $('#collapseExample2').collapse("hide");
+  $('#collapseExample1').collapse("show");
 });
 
+    $('#cols2').on('click', function () { 
+  $('#collapseExample3').collapse("hide");
+  $('#collapseExample1').collapse("hide");
+  $('#collapseExample2').collapse("show");
+});
+
+    $('#cols3').on('click', function () { 
+  $('#collapseExample2').collapse("hide");
+  $('#collapseExample1').collapse("hide");
+  $('#collapseExample3').collapse("show");
+});
 
 </script>
-
-
